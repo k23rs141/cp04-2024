@@ -74,9 +74,8 @@
     button {
         color: blue;
         font-family: Times;
+        border-radius: 20px;
     }
 
     
-    button {
-        border-radius: 20px;
-    }
+   

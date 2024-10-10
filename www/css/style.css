@@ -75,4 +75,6 @@
         color: blue;
     }
 
-    
+    button {
+        font-family: Times;
+    }

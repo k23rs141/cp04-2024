@@ -73,12 +73,10 @@
 
     button {
         color: blue;
-    }
-
-    button {
         font-family: Times;
     }
 
+    
     button {
         border-radius: 20px;
     }

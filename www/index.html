@@ -184,6 +184,22 @@
         
         
     }
+    function alarm2(){
+        var canvas = $("#mycanvas")[0];
+        var ctx = canvas.getContext("2d");
+        var img = new Image();
+        img.src = "niwatori.png";
+        img.onload = function() {
+            ctx.drawImage(img,0,0,200,300);
+        };
+
+        var audio = new Audio();
+        audio.src = "niwatori.mp3";
+        audio.play();
+        
+        
+        
+    }
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
@@ -216,8 +232,10 @@
         if(active) {
             etime = parseInt((new Date()-startTime)/1000);
             rest = period - etime;
-            $("#time").html("経過時間:"+etime);
-            $("#remain").html("残り時間:"+rest);
+            var m = parseInt(rest/60);
+            var s = parseInt(rest - m*60);
+            $("#time").html("経過時間:"+etime+"("+m+":"+s+")");
+            $("#remain").html("残り時間:"+rest+"("+m+":"+s+")");
             analog(rest);
             if(etime%10==0){
                 alarm();
@@ -225,7 +243,7 @@
             }
             if(rest<=0) {
               active = false;
-              alarm();
+              alarm2();
             }
 
         }

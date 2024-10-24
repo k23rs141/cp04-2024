@@ -156,6 +156,7 @@
     var period = 0;
     var rest = 0;
     var etime = 0;
+    
 
 
     
@@ -200,6 +201,15 @@
         
         
     }
+     function alarm3(){
+        var canvas = $("#mycanvas")[0];
+        var ctx = canvas.getContext("2d");
+        var img = new Image();
+        img.src = "tamago.png";
+        img.onload = function() {
+            ctx.drawImage(img,0,0,200,300);
+        };
+     }
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
@@ -240,6 +250,9 @@
             if(etime%10==0){
                 alarm();
 
+            }
+            if((60*parseInt($("#minute").val())+parseInt($("#second").val()))/2<=etime&&rest>2) {
+                alarm3();
             }
             if(rest<=0) {
               active = false;
